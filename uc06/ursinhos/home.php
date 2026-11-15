@@ -9,7 +9,7 @@ session_start();
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ursinhos Home</title>
+<title>Os Ursinhos Carinhosos</title>
 
 <style>
 * {
@@ -166,7 +166,7 @@ footer {
 <nav class="navbar">
 
     <a href="home.php" class="logo">
-        🧸 Ursinhos Help Desk
+        🧸 Os Ursinhos Carinhosos
     </a>
 
     <div class="nav-links">
@@ -183,14 +183,13 @@ footer {
 
     <section class="welcome">
 
-        <h1>Bem-vindo à Terra do Carinho! 🧸</h1>
+        <h1>Bem-vindo à pagina dos Ursinhos Carinhosos! 🧸</h1>
 
         <p>
-            Aqui você encontra ajuda para resolver seus problemas
-            tecnológicos de maneira rápida, simples e especial.
+             Eles vivem na Terra do Carinho (Care-a-Lot) e têm a missão de espalhar amor, compaixão e harmonia, ajudando as pessoas a compartilharem seus sentimentos.
         </p>
 
-        <p>Estamos aqui para cuidar da sua tecnologia! 💗</p>
+        <p> Cada ursinho possui uma cor única e uma insígnia especial na barriga que reflete sua personalidade e libera magias ligadas ao afeto (como o "raio de luz do ursinho Sol" ou a animação da ursinha Animadinha).! 💗</p>
 
     </section>
 
@@ -198,50 +197,46 @@ footer {
     <section class="cards">
 
         <div class="card">
-            <div class="icon">🎫</div>
-            <h2>Abrir Chamado</h2>
+            <div class="icon">🧸</div>
+            <h2>Ursinho Alegra</h2>
             <p>
-                Precisa de ajuda? Registre um novo chamado
-                para nossa equipe.
+                 Rosa, com um arco-íris na barriga.
             </p>
             <a href="abrir_chamado.php" class="btn">
-                Abrir chamado
+                Rosa
             </a>
         </div>
 
         <div class="card">
-            <div class="icon">📋</div>
-            <h2>Meus Chamados</h2>
+            <div class="icon">🧸</div>
+            <h2>Urso Amigo</h2>
             <p>
-                Consulte seus chamados e acompanhe
-                o andamento das solicitações.
+               Laranja, com duas flores na barriga.
             </p>
             <a href="meus_chamados.php" class="btn">
-                Consultar
+                Laranja
             </a>
         </div>
 
         <div class="card">
-            <div class="icon">💻</div>
-            <h2>Suporte Técnico</h2>
+            <div class="icon">🧸</div>
+            <h2>Urso Divertido</h2>
             <p>
-                Encontre suporte para problemas
-                com computadores e sistemas.
+                Amarelo, com um sol sorridente na barriga.
             </p>
             <a href="suporte.php" class="btn">
-                Acessar
+                Amarelo
             </a>
         </div>
 
         <div class="card">
-            <div class="icon">📚</div>
-            <h2>Central de Ajuda</h2>
+            <div class="icon">🧸</div>
+            <h2>Urso da Sorte</h2>
             <p>
-                Confira orientações e dicas
-                para solucionar dúvidas.
+                 Verde, com um trevo de quatro folhas na barriga.
             </p>
             <a href="ajuda.php" class="btn">
-                Saiba mais
+                Verde
             </a>
         </div>
 
@@ -250,8 +245,8 @@ footer {
 </main>
 
 <footer>
-    🧸 Ursinhos Help Desk © 2026
-    <p>Seu problema é nossa prioridade! 💗</p>
+    🧸 Care Bears © 2026
+    <p>Cada Ursinhos Carinhosos (Care Bears) possui uma cor, uma personalidade e um símbolo único bordado na barriga que representa uma emoção ou valor positivo! 💗</p>
 </footer>
 
 </body>
