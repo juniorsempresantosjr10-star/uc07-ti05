@@ -17,7 +17,7 @@
                         <h1>Solidariza</h1>
                     </a>
                     </div>
-                    <button class="menu-toggle" id="menu-toggle">
+                    <button class="menu-toggle" aria-label="abrir menu">
                         <span class="linha"></span>
                         <span class="linha"></span>
                         <span class="linha"></span>
