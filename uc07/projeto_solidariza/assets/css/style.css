@@ -51,37 +51,37 @@ ul {
 }
 
 /* ==========================================================================
-   3. CABEÇALHO E NAVEGAÇÃO (NAVBAR)
+   3. CABEÇALHO E NAVEGAÇÃO (NAVBAR) - CONSOLIDADO
    ========================================================================== */
 .cabecalho-principal {
     background-color: var(--cor-branco);
     border-bottom: var(--borda-padrao);
     box-shadow: var(--sombra-leve);
-    position: sticky; /* Mantém o menu no topo ao rolar a página */
+    position: sticky; 
     top: 0;
     z-index: 100;
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between; /* Separa a logo dos links */
-    align-items: center;            /* Centraliza verticalmente */
-    max-width: 1200px;              /* Largura máxima do conteúdo */
-    margin: 0 auto;                 /* Centraliza a navbar na tela */
+    justify-content: space-between; 
+    align-items: center;            
+    max-width: 1200px;              
+    margin: 0 auto;                 
     padding: 15px 20px;
 }
 
-.logo a img{
-   display:flex;
-   align-items:center;
-   gap:12px;
-
+/* --- LOGO --- */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-.logo img{
-    height: 50px; /* Ajuste a altura conforme necessário */
-    width: auto; /* Mantém a proporção da imagem */
-    display:block;
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
 }
 
 .logo h1 {
@@ -90,15 +90,17 @@ ul {
     font-weight: 700;
 }
 
+/* --- MENU LINKS (DESKTOP) --- */
 .menu-links {
-    display: flex;
+    display: flex;       /* Garante que o menu apareça no Desktop */
     align-items: center;
-    gap: 30px; /* Espaçamento entre os itens do menu */
+    gap: 30px;
 }
 
 .menu-links a:hover {
     color: var(--cor-primaria);
 }
+
 
 /* ==========================================================================
    4. BOTÕES (Componentes Reutilizáveis)
@@ -181,6 +183,7 @@ ul {
     flex: 1; /* Ocupa os outros 50% do espaço */
     display: flex;
     justify-content: center;
+    
 }
 
 .hero-imagem img {
@@ -188,6 +191,7 @@ ul {
     height: auto;
     /* Adiciona uma animação suave de flutuação para dar vida à página */
     animation: flutuar 3s ease-in-out infinite; 
+    border-radius: 16px;
 }
 
 @keyframes flutuar {
@@ -276,14 +280,14 @@ ul {
         flex-direction: column; /* Cards empilhados um embaixo do outro */
     }
     
-    .menu-links {
-        display: none; /* Em um cenário real, aqui entraria um menu Hamburguer */
-    }
+    
+}
 
-    /* ==========================================================================
-   9. MENU HAMBÚRGUER (MOBILE)
+
+/* ==========================================================================
+   9. MENU HAMBÚRGUER E RESPONSIVIDADE (MOBILE)
    ========================================================================== */
-/* Esconde o botão no desktop */
+/* Botão do menu fica oculto no Desktop */
 .menu-toggle {
     display: none; 
     flex-direction: column;
@@ -293,10 +297,9 @@ ul {
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 1000; /* Fica acima do menu aberto */
+    z-index: 1000;
 }
 
-/* Estilo das 3 linhas do hambúrguer */
 .menu-toggle .linha {
     width: 100%;
     height: 3px;
@@ -305,47 +308,46 @@ ul {
     transition: all 0.3s ease;
 }
 
+/* Regras aplicadas APENAS em telas menores que 768px (Celulares) */
 @media (max-width: 768px) {
-    /* Mostra o botão no mobile */
+    
     .menu-toggle {
-        display: flex; 
+        display: flex; /* Mostra o botão hambúrguer */
     }
 
-    /* Transforma os links em um menu flutuante oculto */
+    /* Sobrescreve o .menu-links do desktop para esconder na tela de celular */
     .menu-links {
         position: absolute;
-        top: 70px; /* Altura aproximada do cabeçalho */
+        top: 80px; /* Altura do cabeçalho */
         left: 0;
         width: 100%;
         background-color: var(--cor-branco);
         flex-direction: column;
-        align-items: center;
-        gap: 20px;
         padding: 30px 0;
         box-shadow: var(--sombra-hover);
         
-        /* Esconde o menu puxando ele para cima e tirando a opacidade */
+        /* Esconde o menu */
         transform: translateY(-150%);
         opacity: 0;
+        pointer-events: none; /* Impede que o menu invisível bloqueie cliques */
         transition: all 0.3s ease;
-        z-index: 999;
     }
 
-    /* Classe que o JavaScript vai adicionar para mostrar o menu */
+    /* Classe ativada pelo JavaScript para mostrar o menu */
     .menu-links.ativo {
         transform: translateY(0);
         opacity: 1;
+        pointer-events: auto;
     }
     
-    /* EFEITO DO X: Animação das linhas quando a classe ativo é adicionada no botão */
+    /* Animação do botão virando um "X" */
     .menu-toggle.ativo .linha:nth-child(1) {
         transform: translateY(9.5px) rotate(45deg);
     }
     .menu-toggle.ativo .linha:nth-child(2) {
-        opacity: 0; /* A linha do meio some */
+        opacity: 0;
     }
     .menu-toggle.ativo .linha:nth-child(3) {
         transform: translateY(-9.5px) rotate(-45deg);
     }
-}
 }

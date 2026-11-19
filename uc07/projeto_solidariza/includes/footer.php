@@ -8,11 +8,12 @@
 
     <script src="assets/js/main.js"></script>
     <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const menuLinks = document.querySelector('.menu-links');
+       const menutoggle = document.querySelector('.menu-toggle');
+       const menuLinks = document.querySelector('.menu-links');
 
-        menuToggle.addEventListener('click', () => {
-            menuLinks.classList.toggle('active');
+       menutoggle.addEventListener('click', () => {
+            menuLinks.classList.toggle('activo');
+            menutoggle.classList.toggle('activo');
         });
     </script>
 
