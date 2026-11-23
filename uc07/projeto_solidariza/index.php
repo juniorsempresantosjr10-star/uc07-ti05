@@ -36,6 +36,45 @@ include_once 'includes/header.php';
 
         </div>
         <p>O Projeto Solidariza é uma iniciativa que visa conectar doadores e causas sociais, promovendo a solidariedade e o apoio mútuo. Acreditamos que pequenas ações podem gerar grandes impactos na vida das pessoas.</p>
+    </section>
+
+    <section id= "campanhas" class="vitrine-campanhas">
+        <div class="cabecalho-secao">
+            <h3>Campanhas Ativas</h3>
+            <p>Escolha a causa e faça hoje mesmo</p>
+        </div>
+        
+        <div class="grid-campanhas">
+            <!-- Conteúdo das campanhas será adicionado aqui -->
+             <article class="card-campanha">
+                <span class="badge-status ativa">Ativa</span>
+                <h4>Campanha de Arrecadação de Roupas</h4>
+                <p class="descricao-campanha">Estamos arrecadando roupas para famílias em situação de vulnerabilidade.</p>
+                <div class="rodape-card">
+                <a href="cadastro.php" class="btn-bloco btn-sustentavel">Ver detalhes</a>
+                </div>
+            </article>
+
+              <article class="card-campanha">
+                <span class="badge-status ativa">Ativa</span>
+                <h4>Campanha de Arrecadação de Roupas</h4>
+                <p class="descricao-campanha">Estamos arrecadando roupas para famílias em situação de vulnerabilidade.</p>
+                <div class="rodape-card">
+                <a href="cadastro.php" class="btn-bloco btn-sustentavel">Ver detalhes</a>
+                </div>
+            </article>
+
+              <article class="card-campanha">
+                <span class="badge-status ativa">Ativa</span>
+                <h4>Campanha de Arrecadação de Roupas</h4>
+                <p class="descricao-campanha">Estamos arrecadando roupas para famílias em situação de vulnerabilidade.</p>
+                <div class="rodape-card">
+                <a href="cadastro.php" class="btn-bloco btn-sustentavel">Ver detalhes</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
 </main>
 
 <?php

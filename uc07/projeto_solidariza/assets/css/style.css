@@ -33,6 +33,12 @@
     box-sizing: border-box; /* Garante que padding não aumente o tamanho da caixa */
 }
 
+
+html {
+    /* Faz a tela deslizar suavemente ao clicar em links de âncora (#campanhas) */
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--fonte-principal);
     background-color: var(--cor-fundo-site);
@@ -351,3 +357,143 @@ ul {
         transform: translateY(-9.5px) rotate(-45deg);
     }
 }
+
+.vitrine-campanhas {
+    padding: 60px 0;
+
+    scroll-margin-top: 80px; /* Espaço para o cabeçalho fixo */
+}
+
+.cabecalho-secao {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+
+/* ==========================================================================
+   10. VITRINE DE CAMPANHAS (CSS GRID)
+   ========================================================================== */
+.vitrine-campanhas {
+    padding: 60px 0;
+    /* Compensa a altura do menu fixo (sticky) para o título não ficar escondido ao rolar */
+    scroll-margin-top: 80px; 
+}
+
+.cabecalho-secao {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cabecalho-secao h3 {
+    font-size: 2rem;
+    color: var(--cor-primaria);
+    margin-bottom: 10px;
+}
+
+.cabecalho-secao p {
+    color: var(--cor-texto-claro);
+    font-size: 1.05rem;
+}
+
+/* CSS Grid responsivo automático: cria quantas colunas couberem com no mínimo 300px */
+.grid-campanhas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card-campanha {
+    background-color: var(--cor-branco);
+    border: var(--borda-padrao);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--sombra-leve);
+    
+    /* Flexbox em coluna para empurrar o botão sempre para o fundo do card */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-campanha:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-hover);
+    border-color: var(--cor-primaria);
+}
+
+/* Badge (etiqueta) de Status da Campanha */
+.badge-status {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: 20px; /* Formato de pílula */
+    margin-bottom: 15px;
+}
+
+.badge-status.ativa {
+    background-color: var(--cor-fundo-card); /* Verde Sálvia */
+    color: var(--cor-primaria);              /* Verde Folha */
+}
+
+.btn-bloco {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: auto; /* Empurra o botão para o fundo do card */
+}
+
+/* ==========================================================================
+   11. FORMULÁRIOS (LOGIN E CADASTRO)
+   ========================================================================== */
+.container-form {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px;
+    min-height: 75vh; /* Garante que o rodapé fique empurrado para baixo */
+}
+
+.card-form {
+    background-color: var(--cor-branco);
+    border: var(--borda-padrao);
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 650px; /* Largura ideal para o formulário de cadastro */
+    box-shadow: var(--sombra-leve);
+}
+
+/* Modificador para deixar a caixa de Login mais compacta */
+.card-form-pequeno {
+    max-width: 450px;
+}
+
+.cabecalho-form {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cabecalho-form h2 {
+    color: var(--cor-primaria);
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.cabecalho-form p {
+    color: var(--cor-texto-claro);
+    font-size: 0.95rem;
+}
+
+/* Estilização do Fieldset e Legend */
+.grupo-secao {
+    border: none;
+    border-top: var(--borda-padrao);
+    padding-top: 20px;
+    margin-bottom: 25px;
+}
+
+
