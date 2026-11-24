@@ -10,7 +10,7 @@ include_once 'includes/header.php';
 
         <div class="hero-botoes">
             <a href="cadastrar.php" class="btn-sustentavel btn-grande">Cadastrar</a>
-            <a href="campanhas.php" class="btn-secundario btn-grande">ver campanhas</a>
+            <a href="campanhas.php" class="btn-secundario btn-grande">Ver campanhas</a>
         </div>
       </div> 
         <div class="hero-imagem">
