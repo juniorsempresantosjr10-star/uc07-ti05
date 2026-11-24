@@ -55,6 +55,7 @@
                             minlength="6"
                             required
                         >
+                        <small id="error-senha" class="mensagem-erro"></small>
                     </div>
                 </div>
             </fieldset>
@@ -109,7 +110,7 @@
         </form>
             
         <div class="rodape-form">
-            <p>Ja tem uma conta? <a href="login.php">Entre</a></p>
+            <p>Ja tem uma conta? <a href="login.php">Entre aqui</a></p>
         </div>
 </section>
 
