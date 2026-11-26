@@ -8,6 +8,7 @@
 
     <script src="assets/js/main.js"></script>
     <script src="assets/js/validacao.js"></script>
+    <script src="assets/js/viacep.js"></script>
     <script>
        const menutoggle = document.querySelector('.menu-toggle');
        const menuLinks = document.querySelector('.menu-links');
