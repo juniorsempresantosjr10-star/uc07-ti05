@@ -33,12 +33,6 @@
     box-sizing: border-box; /* Garante que padding não aumente o tamanho da caixa */
 }
 
-
-html {
-    /* Faz a tela deslizar suavemente ao clicar em links de âncora (#campanhas) */
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: var(--fonte-principal);
     background-color: var(--cor-fundo-site);
@@ -56,57 +50,61 @@ ul {
     list-style: none;
 }
 
+/* Adicione esta regra logo abaixo do Reset CSS (Seção 2) */
+html {
+    /* Faz a tela deslizar suavemente ao clicar em links de âncora (#campanhas) */
+    scroll-behavior: smooth;
+}
+
 /* ==========================================================================
-   3. CABEÇALHO E NAVEGAÇÃO (NAVBAR) - CONSOLIDADO
+   3. CABEÇALHO E NAVEGAÇÃO (NAVBAR)
    ========================================================================== */
 .cabecalho-principal {
     background-color: var(--cor-branco);
     border-bottom: var(--borda-padrao);
     box-shadow: var(--sombra-leve);
-    position: sticky; 
+    position: sticky; /* Mantém o menu no topo ao rolar a página */
     top: 0;
     z-index: 100;
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between; 
-    align-items: center;            
-    max-width: 1200px;              
-    margin: 0 auto;                 
+    justify-content: space-between; /* Separa a logo dos links */
+    align-items: center;            /* Centraliza verticalmente */
+    max-width: 1200px;              /* Largura máxima do conteúdo */
+    margin: 0 auto;                 /* Centraliza a navbar na tela */
     padding: 15px 20px;
 }
 
-/* --- LOGO --- */
 .logo a {
     display: flex;
     align-items: center;
     gap: 12px;
 }
-
+ 
 .logo img {
-    height: 50px;
+    height: 75px;
     width: auto;
     display: block;
 }
-
+ 
 .logo h1 {
     font-size: 1.5rem;
     color: var(--cor-primaria);
     font-weight: 700;
 }
+ 
 
-/* --- MENU LINKS (DESKTOP) --- */
 .menu-links {
-    display: flex;       /* Garante que o menu apareça no Desktop */
+    display:flex;
     align-items: center;
-    gap: 30px;
+    gap: 30px; /* Espaçamento entre os itens do menu */
 }
 
 .menu-links a:hover {
     color: var(--cor-primaria);
 }
-
 
 /* ==========================================================================
    4. BOTÕES (Componentes Reutilizáveis)
@@ -189,7 +187,6 @@ ul {
     flex: 1; /* Ocupa os outros 50% do espaço */
     display: flex;
     justify-content: center;
-    
 }
 
 .hero-imagem img {
@@ -286,14 +283,15 @@ ul {
         flex-direction: column; /* Cards empilhados um embaixo do outro */
     }
     
-    
+    .menu-links {
+        display: none; /* Em um cenário real, aqui entraria um menu Hamburguer */
+    }
 }
 
-
 /* ==========================================================================
-   9. MENU HAMBÚRGUER E RESPONSIVIDADE (MOBILE)
-   ========================================================================== */
-/* Botão do menu fica oculto no Desktop */
+   9. MENU HAMBÚRGUER (MOBILE)
+   ========================================================================== */    
+/* Esconde o botão no desktop */
 .menu-toggle {
     display: none; 
     flex-direction: column;
@@ -303,9 +301,10 @@ ul {
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 1000;
+    z-index: 1000; /* Fica acima do menu aberto */
 }
 
+/* Estilo das 3 linhas do hambúrguer */
 .menu-toggle .linha {
     width: 100%;
     height: 3px;
@@ -314,62 +313,49 @@ ul {
     transition: all 0.3s ease;
 }
 
-/* Regras aplicadas APENAS em telas menores que 768px (Celulares) */
 @media (max-width: 768px) {
-    
+    /* Mostra o botão no mobile */
     .menu-toggle {
-        display: flex; /* Mostra o botão hambúrguer */
+        display: flex; 
     }
 
-    /* Sobrescreve o .menu-links do desktop para esconder na tela de celular */
+    /* Transforma os links em um menu flutuante oculto */
     .menu-links {
         position: absolute;
-        top: 80px; /* Altura do cabeçalho */
+        top: 70px; /* Altura aproximada do cabeçalho */
         left: 0;
         width: 100%;
         background-color: var(--cor-branco);
         flex-direction: column;
+        align-items: center;
+        gap: 20px;
         padding: 30px 0;
         box-shadow: var(--sombra-hover);
         
-        /* Esconde o menu */
+        /* Esconde o menu puxando ele para cima e tirando a opacidade */
         transform: translateY(-150%);
         opacity: 0;
-        pointer-events: none; /* Impede que o menu invisível bloqueie cliques */
         transition: all 0.3s ease;
+        z-index: 999;
     }
 
-    /* Classe ativada pelo JavaScript para mostrar o menu */
+    /* Classe que o JavaScript vai adicionar para mostrar o menu */
     .menu-links.ativo {
         transform: translateY(0);
         opacity: 1;
-        pointer-events: auto;
     }
     
-    /* Animação do botão virando um "X" */
+    /* EFEITO DO X: Animação das linhas quando a classe ativo é adicionada no botão */
     .menu-toggle.ativo .linha:nth-child(1) {
         transform: translateY(9.5px) rotate(45deg);
     }
     .menu-toggle.ativo .linha:nth-child(2) {
-        opacity: 0;
+        opacity: 0; /* A linha do meio some */
     }
     .menu-toggle.ativo .linha:nth-child(3) {
         transform: translateY(-9.5px) rotate(-45deg);
     }
 }
-
-.vitrine-campanhas {
-    padding: 60px 0;
-
-    scroll-margin-top: 80px; /* Espaço para o cabeçalho fixo */
-}
-
-.cabecalho-secao {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-
 
 /* ==========================================================================
    10. VITRINE DE CAMPANHAS (CSS GRID)
@@ -439,11 +425,30 @@ ul {
     color: var(--cor-primaria);              /* Verde Folha */
 }
 
+.card-campanha h4 {
+    font-size: 1.3rem;
+    color: var(--cor-texto);
+    margin-bottom: 12px;
+}
+
+.descricao-campanha {
+    color: var(--cor-texto-claro);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    /* flex-grow: 1 faz o texto ocupar o espaço disponível, alinhando os botões de todos os cards */
+    flex-grow: 1; 
+}
+
+.rodape-card {
+    width: 100%;
+}
+
+/* Modificador para o botão ocupar 100% da largura do card */
 .btn-bloco {
-    display: inline-block;
+    display: block;
     width: 100%;
     text-align: center;
-    margin-top: auto; /* Empurra o botão para o fundo do card */
+    border: none;
 }
 
 /* ==========================================================================
@@ -496,6 +501,89 @@ ul {
     margin-bottom: 25px;
 }
 
+.grupo-secao legend {
+    font-weight: 700;
+    color: var(--cor-primaria);
+    font-size: 1rem;
+    padding-right: 12px;
+}
+
+/* Container de cada par Label + Input */
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.grupo-input label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--cor-texto);
+}
+
+.grupo-input input {
+    padding: 12px 14px;
+    border: var(--borda-padrao);
+    border-radius: 6px;
+    font-family: var(--fonte-principal);
+    font-size: 1rem;
+    color: var(--cor-texto);
+    background-color: var(--cor-branco);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Feedback visual de foco (IHC / Acessibilidade) */
+.grupo-input input:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px var(--cor-fundo-card); /* Halo verde sálvia suave */
+}
+
+.texto-ajuda {
+    font-size: 0.8rem;
+    color: var(--cor-texto-claro);
+    margin-top: 5px;
+}
+
+/* Grid de 2 colunas para campos lado a lado (ex: Cidade e UF) */
+.linha-dupla {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.rodape-form {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: var(--borda-padrao);
+    font-size: 0.95rem;
+    color: var(--cor-texto-claro);
+}
+
+.rodape-form a {
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+.rodape-form a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade dos formulários no celular */
+@media (max-width: 768px) {
+    .card-form {
+        padding: 25px 20px;
+    }
+
+    .linha-dupla {
+        grid-template-columns: 1fr; /* Empilha os campos em 1 coluna no mobile */
+        gap: 0;
+    }
+}
+
 /* ==========================================================================
    12. ESTADOS DE VALIDAÇÃO DE FORMULÁRIOS (AULA 07)
    ========================================================================== */
@@ -520,6 +608,3 @@ ul {
     margin-top: 5px;
     min-height: 18px; /* Evita que o layout fique "pulando" quando a mensagem aparece */
 }
-
-
-

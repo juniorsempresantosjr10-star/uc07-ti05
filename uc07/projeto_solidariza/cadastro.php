@@ -112,6 +112,9 @@
         <div class="rodape-form">
             <p>Ja tem uma conta? <a href="login.php">Entre aqui</a></p>
         </div>
-</section>
+    </section>
+</main>
 
-<?php include 'includes/footer.php';?>
+<?php
+include 'includes/footer.php';
+?>
