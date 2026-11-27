@@ -61,7 +61,7 @@ if (campoCep) {
 
     const endereco = await buscarCep(campoCep.value);
 
-    if (endereço || endereco.erro) {
+    if (endereco || endereco.erro) {
         cepStatus.textContent = 'CEP não encontrado. verifique o número digitado.';
         cepStatus.classList.add('texto-erro');
         cepStatus.classList.remove('input-erro');
